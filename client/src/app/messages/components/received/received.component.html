@@ -1,0 +1,57 @@
+<div class="col-lg-10">
+	<h3>{{title}}</h3>
+
+	<!--List of messages received-->
+	<div class="people" *ngIf="messages">
+		
+
+		<!--LIST OF USERS-->
+		
+		<div *ngFor = "let message of messages" class="item-user">
+
+			<div class="panel panel-default" *ngIf="message.sender">
+				<div class="panel-body">
+					<div class="image-user pull-left">
+						<a [routerLink]="['/profile', message.sender._id]">
+							<img src="{{url + 'get-image-user/' + message.sender.image}}" *ngIf = "message.sender.image"/>
+							<img src="assets/default-user.jpg" class="avatar-default" *ngIf = "!message.sender.image"/>
+						</a>
+					</div>
+					<div class="user-name pull-left">
+						<p class="name-surname">
+							<a [routerLink]="['/profile', message.sender._id]">
+								{{message.sender.name + ' ' + message.sender.surname}} 
+							</a>
+							&nbsp;|&nbsp;
+							<span class="nickname">{{message.sender.nickname}}</span>
+							&nbsp;|&nbsp;
+							<span class="date nickname">
+								<!--If you want to translate it into Spanish, you have to include | amLocale: 'es' after the amFromUnix) -->
+								Posted {{(message.created_at | amFromUnix) | amTimeAgo}}
+							</span>
+
+							
+						</p>
+						<div class="col-lg-12">
+							{{message.text}}
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!--paginate-->
+
+		<ul class="pagination pull-right">
+			<li *ngIf ="page > 1"> <a [routerLink]="['/messages/received', prev_page]">Previous page</a></li>
+			<li *ngIf ="pages != page"> <a [routerLink]="['/messages/received', next_page]">Next page</a></li>
+		</ul>
+	
+</div>
+
+</div>

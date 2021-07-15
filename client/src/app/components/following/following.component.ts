@@ -29,6 +29,9 @@ export class FollowingComponent implements OnInit{
 	public status: string;
 	public userPageId;
 
+	//adding load image 
+	public loading: boolean;
+
 	constructor(
 
 		private _route: ActivatedRoute,
@@ -41,6 +44,7 @@ export class FollowingComponent implements OnInit{
 		this.identity = this._userService.getIdentity();
 		this.token = this._userService.getToken();
 		this.url = GLOBAL.url;
+		
 	}
 
 	ngOnInit(){
@@ -93,6 +97,7 @@ export class FollowingComponent implements OnInit{
 					this.following = response.follows;
 					this.pages = response.pages;
 					this.follows = response.users_following;
+
 
 
 					if(page > this.pages){

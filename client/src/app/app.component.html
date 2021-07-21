@@ -1,105 +1,99 @@
-
-
-<div class="navigation col-lg-12">
-
-
-  <nav class="navbar navbar-default">
-
-    <div class="container-fluid">
-
-
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand">{{title}}</a>
-      </div>
-
-      <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
-        <li>
-          <a [routerLink]="['/login']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-log-in"></span>
-            Login
-          </a>
-        </li>
-
-        <li>
-          <a [routerLink]="['/register']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-user"></span>
-            Register
-          </a>
-        </li>
-
-      </ul>
-    
-      <ul class="nav navbar-nav" *ngIf ="identity">
-        <li>
-          <a [routerLink]= "['/home']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-home"></span>
-            Inicio
-          </a>
-        </li>
-
-        <li>
-          <a [routerLink]= "['/timeline']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-th-list"></span>
-            Timeline
-          </a>
-        </li>
-
-        <li>
-          <a [routerLink]= "['/people']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-user"></span>
-            People
-          </a>
-        </li>
-
-        <li>
-          <a [routerLink]= "['/messages']" [routerLinkActive]="['active']">
-            <span class="glyphicon glyphicon-envelope"></span>
-            Messages
-          </a>
-        </li>
-      </ul>
-  
-    <ul class="nav navbar-nav navbar-right" *ngIf="identity">
-      <li class="avatar">
-        <!--load user image-->
-        <img src="{{url + 'get-image-user/'+ identity.image}}" *ngIf='identity && identity.image'/>
-      </li>
-
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <span class="caret"></span> Welcome {{identity.name}} 
-        </a>
-
-        <ul class="dropdown-menu">
-          <li>
-            <a [routerLink]="['/profile', identity._id]">
-              <span class="glyphicon glyphicon-user"></span>
-              My profile
-            </a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/my-data']">
-              <span class="glyphicon glyphicon-cog"></span>
-              My info
-            </a>
-          </li>
-
-          <li>
-            <a class="pointer" (click)="logout()">
-              <span class="glyphicon glyphicon-log-out"></span>
-              Logout
-            </a>
-          </li>
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class='bx bxl-stripe'></i>
+            <div class="logo_name">{{title}}</div>
+        </div>
+        <i class='bx bx-menu' id="btn"></i>
+        <ul class="nav_list" *ngIf="!identity">
+            <li>
+                <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+                    <i class='bx bx-log-in-circle'></i> Login
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a [routerLink]="['/register']" [routerLinkActive]="['active']">
+                    <span class='bx bx-user'></span> Register
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
         </ul>
-      </li>
-    </ul>  
-      
+        <ul class="nav navbar-nav" *ngIf="identity">
+            <li>
+                <a [routerLink]="['/home']" [routerLinkActive]="['active']">
+                    <span class="bx bx-home"></span> Home
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+
+            <li>
+                <a [routerLink]="['/timeline']" [routerLinkActive]="['active']">
+                    <span class="bx bx-list-ul"></span> Timeline
+                </a>
+                <span class="tooltip">Timeline</span>
+            </li>
+
+            <li>
+                <a [routerLink]="['/people']" [routerLinkActive]="['active']">
+                    <span class="bx bx-group"></span> People
+                </a>
+                <span class="tooltip">People</span>
+            </li>
+
+            <li>
+                <a [routerLink]="['/messages']" [routerLinkActive]="['active']">
+                    <span class="bx bx-paper-plane"></span> Messages
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-left profile_content" *ngIf="identity">
+            <li class="avatar">
+                <img src="{{url + 'get-image-user/'+ identity.image}}" *ngIf='identity && identity.image' />
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="caret"></span> Welcome {{identity.name}}
+                    <span class="tooltip">{{identity.name}}</span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a [routerLink]="['/profile', identity._id]">
+                            <span class="bx bx-user"></span> My profile
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a [routerLink]="['/my-data']">
+                            <span class="bx bx-cog"></span> My info
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a class="pointer" (click)="logout()">
+                            <i class="bx bx-log-out"></i> Logout
+                        </a>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
 
     </div>
-
-  </nav>
-
 </div>
+<script>
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+</script>
 
-<router-outlet></router-outlet>
+<router-outlet>
+</router-outlet>

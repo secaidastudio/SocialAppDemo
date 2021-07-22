@@ -53,8 +53,21 @@
             <li class="avatar">
                 <img src="{{url + 'get-image-user/'+ identity.image}}" *ngIf='identity && identity.image' />
             </li>
-
-            <li class="dropdown">
+            <div class="dropdown">
+                <button class="dropbtn">Welcome {{identity.name}}</button>
+                <div class="dropdown-content">
+                    <a [routerLink]="['/profile', identity._id]">
+                        <span class="bx bx-user"></span> My profile
+                    </a>
+                    <a [routerLink]="['/my-data']">
+                        <span class="bx bx-cog"></span> My info
+                    </a>
+                    <a class="pointer" (click)="logout()">
+                        <i class="bx bx-log-out"></i> Logout
+                    </a>
+                </div>
+            </div>
+            <!--<li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="caret"></span> Welcome {{identity.name}}
                     <span class="tooltip">{{identity.name}}</span>
@@ -82,18 +95,20 @@
 
                     </li>
                 </ul>
-            </li>
+            </li>-->
         </ul>
 
     </div>
+
 </div>
-<script>
+<!--<script>
     let btn = document.querySelector("#btn");
     let sidebar = document.querySelector(".sidebar");
     btn.onclick = function() {
         sidebar.classList.toggle("active");
     }
-</script>
+</script>-->
+
 
 <router-outlet>
 </router-outlet>

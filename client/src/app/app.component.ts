@@ -16,6 +16,7 @@ export class AppComponent implements OnInit, DoCheck{
   public url: string;
 
 
+
   constructor(
 
     private _route: ActivatedRoute,
@@ -40,4 +41,7 @@ export class AppComponent implements OnInit, DoCheck{
     this.identity= null;
     this._router.navigate(['/']);
   }
+
+  
+ 
 }

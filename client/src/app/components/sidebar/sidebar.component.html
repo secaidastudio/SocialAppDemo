@@ -1,8 +1,10 @@
-<div class="col-lg-4 sidebar-32">
+<!--<div class="col-lg-4 sidebar-32">
     <h1 class="h1-strong">Hi {{identity.name}}</h1>
-</div>
+</div>-->
 <div id="user-card" class="col-lg-4 panel panel-default pull-right">
-
+    <div>
+        <h1 class="h1-strong">Hi {{identity.name}}</h1>
+    </div>
     <div class="avatar pull-left">
         <img src="{{ url + 'get-image-user/' + identity.image}}" *ngIf="identity.image" />
         <img src="assets/default-user.jpg" *ngIf="!identity.image" />
@@ -27,7 +29,7 @@
 				</span>
 
                 <span class="number-stats">
-					{{stats.following}}
+					{{stats.following}} 
 				</span>
             </a>
         </div>
@@ -41,7 +43,7 @@
 				</span>
 
                 <span class="number-stats">
-					{{stats.followed}}
+					{{stats.followed}} 
 				</span>
             </a>
         </div>
@@ -73,7 +75,7 @@
     <div class="alert alert-danger" *ngIf="status == 'error'">
         Unable to save publication .
     </div>
-    <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm, $event);" class="col-lg-10">
+    <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm, $event);" class="col-lg-10" id="formbox">
         <p>
             <label>Share your thoughts</label>
             <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" class="form-control" required></textarea>

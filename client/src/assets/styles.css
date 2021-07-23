@@ -10,7 +10,7 @@ body {
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .sidebar {
@@ -212,6 +212,9 @@ body {
 
 /**UTILIZAR LO ANTES ESCRITO PARA LAS DEMAS SECCIONES**/
 
+
+/**SLIDESHOW IN HOMEPAGE**/
+
 .slide {
     position: fixed;
     height: 80%;
@@ -285,4 +288,109 @@ body {
     width: 1200px;
     position: relative;
     float: left;
+}
+
+
+/**END OFSLIDESHOW IN HOMEPAGE**/
+
+
+/**LOGIN COMPONENT**/
+
+#login {
+    position: fixed;
+    height: 50%;
+    width: calc(100% - 240px);
+    left: 240px;
+    text-align: center;
+}
+
+#login form p input {
+    width: 35%;
+    margin-left: 330px;
+    position: static;
+}
+
+
+/*TINELINE*/
+
+#timeline {
+    left: 225px;
+}
+
+#timeline .panel-default {
+    margin-right: 210px;
+}
+
+#timeline .image-user a img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+
+/*END OF TIMELINE*/
+
+
+/*USER CARD*/
+
+.sidebar-32 {
+    position: fixed;
+}
+
+#user-card {
+    position: fixed;
+    margin-top: 70px;
+    margin-left: 850px;
+}
+
+#user-card .avatar img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 50%;
+    width: 150px;
+}
+
+#user-card .name-surname {
+    font-size: 25px;
+    color: gray;
+}
+
+#user-card .stats {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    color: black;
+}
+
+#user-card .stats a {
+    color: black;
+}
+
+
+/*New publications*/
+
+#new-publication {
+    position: fixed;
+    margin-top: 350px;
+    margin-left: 855px;
+}
+
+
+/*EDITING PEOPLE'S PAGE*/
+
+.col-lg-8 {
+    left: 225px;
+}
+
+.people {
+    margin-right: 210px;
+}
+
+.people .image-user a img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 50%;
+    width: 150px;
 }
